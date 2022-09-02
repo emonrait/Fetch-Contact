@@ -41,7 +41,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="25dp"
+                    android:layout_marginTop="5dp"
                     android:gravity="center_horizontal"
                     android:padding="7dp"
                     android:text="@string/welcome_to"
@@ -54,16 +54,17 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:gravity="center_horizontal"
-                    android:padding="5dp"
-                    android:text="Call Center"
-                    android:textColor="@android:color/black"
+                    android:padding="2dp"
+                    android:text="@string/call_center"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:textSize="@dimen/textsize_base"
                     android:textStyle="bold" />
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_15"
+                    android:layout_marginTop="@dimen/margin_5"
                     android:gravity="center"
                     android:orientation="vertical">
 
@@ -79,13 +80,32 @@
                         android:id="@+id/tv_call_action"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/margin_10"
                         android:gravity="center"
                         android:padding="@dimen/padding_5"
                         android:text="01816028491"
                         android:textColor="@color/colorPrimary"
                         android:textSize="16sp"
                         android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/or_send_an_message_to"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/or_send_a_whatsapp_message" />
+
+                    <TextView
+                        android:id="@+id/tv_whats_send"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_5"
+                        android:background="@drawable/layout_emails_round"
+                        android:gravity="center"
+                        android:padding="@dimen/padding_15"
+                        android:text="emonrait@gmail.com"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/textsize_base" />
+
 
                     <TextView
                         android:id="@+id/or_send_an_email_to"

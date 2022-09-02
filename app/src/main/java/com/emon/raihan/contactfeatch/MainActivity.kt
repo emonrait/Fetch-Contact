@@ -10,11 +10,10 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.ContactsContract
-import android.text.Editable
 import android.provider.Settings
+import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
@@ -22,7 +21,6 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
@@ -221,7 +219,6 @@ class MainActivity : CustomAppCompatActivity(), ContactAdapter.OnItemClickListen
     }
 
     private fun call(phone: String, name: String, uri: String) {
-
         val callIntent = Intent(Intent.ACTION_CALL)
         callIntent.data = Uri.parse("tel:" + phone)
         callIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
@@ -242,11 +239,13 @@ class MainActivity : CustomAppCompatActivity(), ContactAdapter.OnItemClickListen
         val tvName =
             reg_layout.findViewById<TextView>(R.id.tvName)
         val tv_call_message = reg_layout.findViewById<TextView>(R.id.tv_call_message)
+        val tv_whats_send = reg_layout.findViewById<TextView>(R.id.tv_whats_send)
         val tv_call_action = reg_layout.findViewById<TextView>(R.id.tv_call_action)
         val or_send_an_email_to =
             reg_layout.findViewById<TextView>(R.id.or_send_an_email_to)
 
         tv_call_action.setText(phone)
+        tv_whats_send.setText(phone)
         tvName.setText(name)
 
         if (uri == null || uri == "") {
@@ -274,6 +273,21 @@ class MainActivity : CustomAppCompatActivity(), ContactAdapter.OnItemClickListen
             alertDialog.dismiss()
         }
 
+        tv_whats_send.setOnClickListener {
+            var newphone = ""
+
+            if (phone.replace("[-.^:*#_/, @&!\$%|]".toRegex(), "").length == 11) {
+                newphone = "+88" + phone
+            } else if (phone.startsWith("+880")) {
+                newphone = phone.replace("[-.^:*#_/, @&!\$%|]".toRegex(), "")
+            } else {
+                newphone = phone.replace("[-.^:*#_/, @&!\$%|]".toRegex(), "")
+            }
+
+            sendwts(newphone, name)
+        }
+
+
         tv_mail_send.setOnClickListener {
 
             val emailIntent = Intent(
@@ -292,6 +306,23 @@ class MainActivity : CustomAppCompatActivity(), ContactAdapter.OnItemClickListen
 
         alertDialog.show()
 
+    }
+
+    protected fun sendwts(mobile: String, message: String) {
+        val pm = packageManager
+        try {
+            val phoneNumberWithCountryCode = mobile.trim { it <= ' ' }
+            //String message = "Hallo";
+            startActivity(
+                Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("https://api.whatsapp.com/send?phone=$phoneNumberWithCountryCode&text=$message")
+                )
+            )
+        } catch (e: Exception) {
+            Toast.makeText(this, "WhatsApp not Installed", Toast.LENGTH_SHORT)
+                .show()
+        }
     }
 
 }

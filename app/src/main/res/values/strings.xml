@@ -5,4 +5,6 @@
     <string name="you_are_able_to_call_this_number">you are able to call this number</string>
     <string name="or_send_an_email_to">or send an email to</string>
     <string name="call_now">Call Now</string>
+    <string name="call_center">Call Center</string>
+    <string name="or_send_a_whatsapp_message">or send a whatsapp message</string>
 </resources>
