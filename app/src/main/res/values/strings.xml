@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Contact Featch</string>
+    <string name="search_contact">Search Contact</string>
+    <string name="welcome_to">Welcome</string>
+    <string name="you_are_able_to_call_this_number">you are able to call this number</string>
+    <string name="or_send_an_email_to">or send an email to</string>
+    <string name="call_now">Call Now</string>
+</resources>

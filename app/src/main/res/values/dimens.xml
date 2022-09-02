@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_5">5dp</dimen>
+    <dimen name="margin_2">2dp</dimen>
+    <dimen name="login_card_corner_radius_base">5dp</dimen>
+    <dimen name="login_card_elevation_base">5dp</dimen>
+    <dimen name="textsize_base">16sp</dimen>
+    <dimen name="margin_50">50dp</dimen>
+    <dimen name="card_view_edittext_general_height_base">60dp</dimen>
+    <dimen name="dropdwon_arrow_width_height_base">50dp</dimen>
+    <dimen name="input_padding_letf_base">5dp</dimen>
+    <dimen name="input_padding_bottom_base">5dp</dimen>
+    <dimen name="welcome_menu_icon_height_base">40dp</dimen>
+    <dimen name="margin_15">15dp</dimen>
+    <dimen name="margin_10">10dp</dimen>
+    <dimen name="padding_5">5dp</dimen>
+    <dimen name="padding_15">15dp</dimen>
+</resources>
